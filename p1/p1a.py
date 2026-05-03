@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Create complex plane meshgrid
-x = np.linspace(-3, 1, 400)
+x = np.linspace(-3, 3, 400)
 y = np.linspace(-3, 3, 400)
 X, Y = np.meshgrid(x, y)
 Z = X + 1j * Y
@@ -18,17 +18,21 @@ for i in range(Z.shape[0]):
         max_r_3rd[i, j] = np.max(np.abs(roots))
 
 # Plotting
-fig, axes = plt.subplots(1, 2, figsize=(14, 6))
-levels = np.linspace(1, 10, 20)
+fig, axes = plt.subplots(1, 2, figsize=(10, 5))
 
-c1 = axes[0].contourf(X, Y, max_r_2nd, levels=levels, extend='both', cmap='Reds')
+axes[0].contour(X, Y, max_r_2nd, np.linspace(1, 10, 30))
+axes[0].contour(X, Y, max_r_2nd, [1], colors=['red'])
 axes[0].set_title('2nd Order: Max |r| Contours')
+axes[0].set_xlabel('real part')
+axes[0].set_ylabel('imag part')
 axes[0].grid(True)
-fig.colorbar(c1, ax=axes[0])
 
-c2 = axes[1].contourf(X, Y, max_r_3rd, levels=levels, extend='both', cmap='Reds')
+axes[1].contour(X, Y, max_r_3rd, np.linspace(1, 10, 30))
+axes[1].contour(X, Y, max_r_3rd, [1], colors=['red'])
 axes[1].set_title('3rd Order: Max |r| Contours')
+axes[1].set_xlabel('real part')
+axes[1].set_ylabel('imag part')
 axes[1].grid(True)
-fig.colorbar(c2, ax=axes[1])
 
+plt.tight_layout()
 plt.show()
