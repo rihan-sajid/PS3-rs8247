@@ -50,7 +50,7 @@ v_exact = C * (-omega_F * np.sin(omega_F * t) + omega * np.sin(omega * t))
 error_fe = np.sqrt((x - x_exact)**2 + (v - v_exact)**2)
 
 # Plot the Results 
-figs, axes = plt.subplots(2, 1, figsize=(12, 10))
+figs, axes = plt.subplots(1, 3, figsize=(18, 5))
 
 # Plot Numerical
 axes[0].plot(t, x, label=f'RK4 (dt={dt})', color='red', alpha=0.8)
@@ -71,6 +71,13 @@ axes[1].set_xlabel('Time (t)')
 axes[1].set_ylabel('Error')
 axes[1].legend()
 axes[1].grid(True)
+
+axes[2].plot(v, x, label=f'Phase Space (dt={dt})', color='green', alpha=0.8)
+axes[2].set_title('Phase Space')
+axes[2].set_xlabel('Velocity v(t)')
+axes[2].set_ylabel('Displacement x(t)')
+axes[2].legend()
+axes[2].grid(True)
 
 plt.tight_layout()
 
