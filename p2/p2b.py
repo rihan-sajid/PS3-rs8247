@@ -67,4 +67,5 @@ axes[2].grid(True)
 plt.tight_layout()
 
 # Show the plot
+plt.savefig('p2b.png')
 plt.show()

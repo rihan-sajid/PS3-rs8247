@@ -35,4 +35,5 @@ axes[1].set_ylabel('imag part')
 axes[1].grid(True)
 
 plt.tight_layout()
+plt.savefig('p1a.png')
 plt.show()

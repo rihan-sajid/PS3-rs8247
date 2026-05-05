@@ -80,6 +80,6 @@ axes[2].legend()
 axes[2].grid(True)
 
 plt.tight_layout()
-
+plt.savefig('p2c.png')
 # Show the plot
 plt.show()
